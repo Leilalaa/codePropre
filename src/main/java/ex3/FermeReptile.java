@@ -1,30 +1,28 @@
 package ex3;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class FermeReptile {
-
-	private List<String> types;
-	private List<String> noms;
-	private List<String> comportements;
+public class FermeReptile extends Zone {
 	
-	public void addAnimal(String typeAnimal, String nomAnimal, String comportement) {
-		types.add(typeAnimal);
-		noms.add(nomAnimal);
-		comportements.add(comportement);
-	}
+	private ArrayList<Animal> animaux;
+	private static double qteNourriture = 0.1;
 	
-	public void afficherListeAnimaux(){
-		for (String nom: noms){
-			System.out.println(nom);
+	public void addAnimal(Animal animal) {
+			animaux.add(animal);
 		}
-	}
+		
+		public void afficherListeAnimaux(){
+			for (Animal animal: animaux){
+				System.out.println(animal.getNom());
+			}
+		}
+		
 	
 	public int compterAnimaux(){
-		return noms.size();
+		return animaux.size();
 	}
 	
 	public double calculerKgsNourritureParJour(){
-		return noms.size() * 0.1;
+		return animaux.size() * qteNourriture;
 	}
 }
