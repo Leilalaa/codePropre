@@ -18,7 +18,7 @@ public class Animal {
 	protected String comportement;
 	
 	public Animal(String type, String nom, String comportement) {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public String getType() {

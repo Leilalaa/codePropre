@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class FermeReptile extends Zone {
 	
 	private ArrayList<Animal> animaux;
-	private static double qteNourriture = 0.1;
+	private static double coeff = 0.1;
 	
 	public void addAnimal(Animal animal) {
 			animaux.add(animal);
@@ -23,6 +23,6 @@ public class FermeReptile extends Zone {
 	}
 	
 	public double calculerKgsNourritureParJour(){
-		return animaux.size() * qteNourriture;
+		return animaux.size() * coeff;
 	}
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ZoneCarnivore extends Zone {
 
 	private ArrayList<Animal> animaux;
-	private static double qteNourriture = 10;
+	private static double coeff = 10;
 	
 	public void addAnimal(Animal animal) {
 			animaux.add(animal);
@@ -19,6 +19,6 @@ public class ZoneCarnivore extends Zone {
 		
 	
 	public double calculerKgsNourritureParJour(){
-		return animaux.size() * qteNourriture;
+		return animaux.size() * coeff;
 	}
 }
