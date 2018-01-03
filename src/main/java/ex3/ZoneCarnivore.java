@@ -4,21 +4,18 @@ import java.util.ArrayList;
 
 public class ZoneCarnivore extends Zone {
 
-	private ArrayList<Animal> animaux;
-	private static double coeff = 10;
-	
-	public void addAnimal(Animal animal) {
-			animaux.add(animal);
-		}
-		
-		public void afficherListeAnimaux(){
-			for (Animal animal: animaux){
-				System.out.println(animal.getNom());
-			}
-		}
-		
-	
-	public double calculerKgsNourritureParJour(){
-		return animaux.size() * coeff;
+	public ZoneCarnivore(){
+		this.nom = "Zone Carnivore";
+		this.coeff = 10;
 	}
+
+		public boolean verifZone(Animal animal){
+			if (animal.getType().equals("MAMMIFERE") && animal.getComportement().equals("CARNIVORE")){
+				this.animaux.add(animal);
+				return true;
+			}
+		return false;	
+		
+		}
+	
 }

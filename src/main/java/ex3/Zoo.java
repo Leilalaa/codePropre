@@ -12,18 +12,18 @@ public class Zoo {
 		this.nom = nom;
 	}
 	
-	public void addAnimal(Animal animal){
-		if (animal.getType().equals("MAMMIFERE") && animal.getComportement().equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(animal);
-		}
-		else if (animal.getType().equals("MAMMIFERE") && animal.getComportement().equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(animal);
-		}
-		else if (animal.getType().equals("REPTILE")){
-			fermeReptile.addAnimal(animal);
-		}
-		else if (animal.getType().equals("POISSON")){
-			aquarium.addAnimal(animal);
+	/** Fonction permettant d'ajouter un animal au zoo, en allant tester dans chaque zone si l'animal a les conditions pour y être admis jusqu'à ce qu'il trouve la zone adequate
+	 * @param animal est l'animal que l'on souhaite ajouter
+	 * @param animalAdmis est un boolean qui prend la valeur true une fois que la bonne zone est trouvée, afin d'arrêter de parcourir la liste
+	 * @param iterZones est un iterateur parcourant la liste de zones pour pouvoir utiliser la fonction de test verifZone dans chaque zone
+	 */
+	public void ajouterAnimal(Animal animal){
+		boolean animalAdmis = false;
+		Iterator<Zone> iterZones = Zone.values().iterator();
+		
+		while (iterZones.hasNext() && !animalAdmis){
+			Zone zone = iterZones.next();
+			animalAdmis = zone.verifZone(animal);
 		}
 	}
 	

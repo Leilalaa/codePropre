@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public abstract class Zone {
 	
-	private String nom;
-	private double qteNourriture;
+	protected String nom;
+	protected double coeff;
+	protected ArrayList<Animal> animaux = new ArrayList<Animal>();
 	
-	private ArrayList<Animal> animaux = new ArrayList<Animal>();
+
 	
-	public void addAnimal(Animal animal) {
+	public void ajouterAnimal(Animal animal) {
 		animaux.add(animal);
 	}
 	
@@ -20,7 +21,9 @@ public abstract class Zone {
 	}
 	
 	public double calculerKgsNourritureParJour(){
-		return animaux.size() * qteNourriture;
+		return animaux.size() * coeff;
 	}
+	
+	public abstract boolean verifZone(Animal animal);
 
 }
