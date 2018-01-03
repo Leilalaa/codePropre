@@ -1,5 +1,7 @@
 package ex3;
 
+import java.util.ArrayList;
+
 /** Représentation d'un zoo avec ses différentes zones, ainsi qu'avec les animaux y habitant
  * @author Leila
  *
@@ -7,6 +9,7 @@ package ex3;
 public class Zoo {
 
 	private String nom;
+	private ArrayList<Zone> zones = new ArrayList<Zone>();
 	private SavaneAfricaine savaneAfricaine;
 	private ZoneCarnivore zoneCarnivore;
 	private FermeReptile fermeReptile;
@@ -14,6 +17,10 @@ public class Zoo {
 	
 	public Zoo(String nom){
 		this.nom = nom;
+		zones.add(new SavaneAfricaine());
+		zones.add(new Aquarium());
+		zones.add(new FermeReptile());
+		zones.add(new ZoneCarnivore());
 	}
 	
 	/** Fonction permettant d'ajouter un animal au zoo, en allant tester dans chaque zone si l'animal a les conditions pour y être admis jusqu'à ce qu'il trouve la zone adequate
@@ -26,7 +33,7 @@ public class Zoo {
 		Iterator<Zone> iterZones = Zone.values().iterator();
 		
 		while (iterZones.hasNext() && !animalAdmis){
-			Zone zone = iterZones.next();
+			Zone zones = iterZones.next();
 			animalAdmis = zone.verifZone(animal);
 		}
 	}
