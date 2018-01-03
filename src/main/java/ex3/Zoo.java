@@ -1,5 +1,9 @@
 package ex3;
 
+/** Représentation d'un zoo avec ses différentes zones, ainsi qu'avec les animaux y habitant
+ * @author Leila
+ *
+ */
 public class Zoo {
 
 	private String nom;
